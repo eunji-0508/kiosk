@@ -53,7 +53,7 @@ public class Main {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("0~4까지의 숫자만 입력해주세요.");
-                System.out.println(scanner.nextLine());     // 트러블 슈팅: 라인 정리
+                scanner.nextLine();     // 트러블 슈팅: 라인 정리
             }
         }
         scanner.close();
