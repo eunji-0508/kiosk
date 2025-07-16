@@ -43,20 +43,12 @@ public class Kiosk {
                         progress = false;
                         break;
 
+                    // 메모리 낭비 vs 가독성 -> 가독성
                     case 1:
-                        System.out.println(menuItems.get(0).getName() + "를 주문하였습니다.");
-                        break;
-
                     case 2:
-                        System.out.println(menuItems.get(1).getName() + "를 주문하였습니다.");
-                        break;
-
                     case 3:
-                        System.out.println(menuItems.get(2).getName() + "를 주문하였습니다.");
-                        break;
-
                     case 4:
-                        System.out.println(menuItems.get(3).getName() + "를 주문하였습니다.");
+                        System.out.println(menuItems.get(num-1).getName() + "를 주문하였습니다.");
                         break;
 
                     default:
@@ -64,6 +56,8 @@ public class Kiosk {
                         System.out.println();
                 }
 
+                // 트러블 슈팅: 바로 다시 반복으로 가는 게 아니라 if문을 실행하려고 해서 오류가 난다.
+                // 해결: != 0이 아니라 범위를 지정한다.
                 if (num >= 1 && num < 5) {
                     System.out.println();
                     System.out.println("선택한 메뉴 : " + menuItems.get(num - 1).getName() + ", " + menuItems.get(num - 1).getPrice() + ", " + menuItems.get(num - 1).getExplanation());
