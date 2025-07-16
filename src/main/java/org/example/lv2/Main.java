@@ -45,9 +45,9 @@ public class Main {
             String messageResult = String.format(message1, i, menuItems.get(i - 1).getName(), menuItems.get(i - 1).getPrice(), menuItems.get(i - 1).getExplanation());
             System.out.println(messageResult);
         }
-        System.out.println("0. 종료             | 종료");
-        System.out.println();
 
+        System.out.println("0. 종료      | 종료");
+        System.out.println();
 
         // 숫자를 입력 받기
         System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
