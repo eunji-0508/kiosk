@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Kiosk {
     // 속성(필드)
+    // 트러블 슈팅: final이라 값 못 바꾸는데 초기화까지 하려고 함
     private final List<MenuItem> menuItems;
 
     // 생성자
