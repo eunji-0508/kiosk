@@ -20,7 +20,7 @@ public class Main {
             System.out.println("0. 종료      | 종료");
 
             System.out.println();
-            System.out.print("메뉴를 선택하세요: ");
+            System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
 
             try {
                 int num = scanner.nextInt();    // ctrl + b
