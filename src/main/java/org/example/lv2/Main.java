@@ -49,6 +49,44 @@ public class Main {
         System.out.println();
 
 
+        // 숫자를 입력 받기
+        System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
+        try {
+            int num = scanner.nextInt();    // ctrl + b
 
+            switch (num) {
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+
+                case 1:
+                    System.out.println(menuItems.get(0).getName() + "를 주문하였습니다.");
+                    break;
+
+                case 2:
+                    System.out.println(menuItems.get(1).getName() + "를 주문하였습니다.");
+                    break;
+
+                case 3:
+                    System.out.println(menuItems.get(2).getName() + "를 주문하였습니다.");
+                    break;
+
+                case 4:
+                    System.out.println(menuItems.get(3).getName() + "를 주문하였습니다.");
+                    break;
+
+                default:
+                    System.out.println("해당 번호는 존재하지 않습니다.");
+                    System.out.println();
+            }
+
+            if (num != 0) {
+                System.out.println();
+                System.out.println("선택한 메뉴 : " + menuItems.get(num - 1).getName() + ", " + menuItems.get(num - 1).getPrice() + ", " + menuItems.get(num - 1).getExplanation());
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("0~4까지의 숫자만 입력해주세요.");
+        }
     }
 }
