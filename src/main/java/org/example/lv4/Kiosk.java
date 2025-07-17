@@ -8,15 +8,16 @@ import java.util.Scanner;
 public class Kiosk {
     // 기능
     public void start() {
+        // 스캐너 선언
         Scanner scanner = new Scanner(System.in);
         boolean progress = true;
 
-        // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
+        // 반복문 시작
         while (progress) {
             System.out.println();
             System.out.println("[ MAIN MENU ]");
 
-
+            // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
             String message1 = "%d. %-15s | W %4.1f | %s";
 
             for (int i = 1; i <= 4; i++) {
