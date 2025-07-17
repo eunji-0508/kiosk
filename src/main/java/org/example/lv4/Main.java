@@ -3,6 +3,9 @@ package org.example.lv4;
 
 public class Main {
     public static void main(String[] args) {
+        Menu burgers = new Menu("Burgers");
+        Menu drinks = new Menu("Drinks");
+        Menu desserts = new Menu("Desserts");
 
     }
 }

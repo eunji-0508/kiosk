@@ -1,5 +1,6 @@
 package org.example.lv4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
@@ -8,19 +9,21 @@ public class Menu {
     private String category;
 
     // 생성자
-    public Menu(List<MenuItem> menuItems) {
-        this.menuItems = menuItems;
+    public Menu(String category) {
+        this.menuItems = new ArrayList<>();
+        this.category = category;
     }
 
     // 기능
+    // 게터(Getter)
+
     // List에 들어있는 MenuItem을 순차적으로 보여주는 함수
     // List를 리턴하는 함수
     // for..? return..? 둘 다 동시에 만족시켜야 하나?
-    public List<MenuItem> printMenuItems() {
+    public List<MenuItem> getMenuItems() {
         return menuItems;
     }
 
-    // 게터(Getter)
     // 메뉴 카테고리 이름을 반환하는 메서드
     public String getCategory() {
         return this.category;
