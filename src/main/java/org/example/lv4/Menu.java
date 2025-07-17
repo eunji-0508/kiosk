@@ -5,7 +5,7 @@ import java.util.List;
 public class Menu {
     // 속성(필드)
     private final List<MenuItem> menuItems;
-
+    private String category;
 
     // 생성자
     public Menu(List<MenuItem> menuItems) {
@@ -18,5 +18,11 @@ public class Menu {
     // for..? return..? 둘 다 동시에 만족시켜야 하나?
     public List<MenuItem> printMenuItems() {
         return menuItems;
+    }
+
+    // 게터(Getter)
+    // 메뉴 카테고리 이름을 반환하는 메서드
+    public String getCategory() {
+        return this.category;
     }
 }
