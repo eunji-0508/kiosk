@@ -1,6 +1,5 @@
 package org.example.lv4;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -53,15 +52,19 @@ public class Kiosk {
                             Menu burgerMenus = menus.get(0);
                             burgerMenus.printMenuItems();
 
+                            // Menu가 가진 List<MenuItem>을 반복문을 활용하여 햄버거 메뉴 출력
                             List<MenuItem> burgerItems = burgerMenus.getMenuItems();
 
-                            System.out.println("0. 종료      | 종료");
+                            System.out.println("0. 뒤로가기");
                             System.out.println();
 
+                            // 숫자 입력 받기
                             System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
                             int numBurger = scanner.nextInt();
 
                             String message1 = "%-12s | W %4.1f | %s";
+
+                            // 입력 받은 숫자가 올바르다면 인덱스를 활용해서 Menu가 가지고 있는 List<MenuItem>에 접근하기
                             switch(numBurger) {
                                 case 0:
                                     break;
@@ -84,7 +87,7 @@ public class Kiosk {
 
                             List<MenuItem> drinkItems = drinkMenus.getMenuItems();
 
-                            System.out.println("0. 종료      | 종료");
+                            System.out.println("0. 뒤로가기");
                             System.out.println();
 
                             System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
@@ -113,7 +116,7 @@ public class Kiosk {
 
                             List<MenuItem> dessertItems = dessertMenus.getMenuItems();
 
-                            System.out.println("0. 종료      | 종료");
+                            System.out.println("0. 뒤로가기");
                             System.out.println();
 
                             System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
