@@ -19,6 +19,8 @@ public class Kiosk {
         Scanner scanner = new Scanner(System.in);
         boolean progress = true;
 
+        String message = "%-12s | W %4.1f | %s";
+
         // 반복문 시작
         while (progress) {
             System.out.println();
@@ -67,8 +69,6 @@ public class Kiosk {
                                     System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
                                     int numBurger = scanner.nextInt();
 
-                                    String message1 = "%-12s | W %4.1f | %s";
-
                                     // 입력 받은 숫자가 올바르다면 인덱스를 활용해서 Menu가 가지고 있는 List<MenuItem>에 접근하기
                                     if (numBurger >= 0 && numBurger <= 4) {
                                         switch (numBurger) {
@@ -80,7 +80,7 @@ public class Kiosk {
                                             case 2:
                                             case 3:
                                             case 4:
-                                                System.out.println("선택한 메뉴: " + String.format(message1, burgerItems.get(numBurger - 1).getName(), burgerItems.get(numBurger - 1).getPrice(), burgerItems.get(numBurger - 1).getExplanation()));
+                                                System.out.println("선택한 메뉴: " + String.format(message, burgerItems.get(numBurger - 1).getName(), burgerItems.get(numBurger - 1).getPrice(), burgerItems.get(numBurger - 1).getExplanation()));
                                                 progressBurgers = false;
                                                 break;
                                         }
@@ -116,7 +116,6 @@ public class Kiosk {
                                     System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
                                     int numDrink = scanner.nextInt();
 
-                                    String message2 = "%-12s | W %4.1f | %s";
                                     if (numDrink >= 0 && numDrink <= 4) {
                                         switch (numDrink) {
                                             case 0:
@@ -127,7 +126,7 @@ public class Kiosk {
                                             case 2:
                                             case 3:
                                             case 4:
-                                                System.out.println("선택한 메뉴: " + String.format(message2, drinkItems.get(numDrink - 1).getName(), drinkItems.get(numDrink - 1).getPrice(), drinkItems.get(numDrink - 1).getExplanation()));
+                                                System.out.println("선택한 메뉴: " + String.format(message, drinkItems.get(numDrink - 1).getName(), drinkItems.get(numDrink - 1).getPrice(), drinkItems.get(numDrink - 1).getExplanation()));
                                                 progressDrinks = false;
                                                 break;
                                         }
@@ -162,7 +161,6 @@ public class Kiosk {
                                     System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
                                     int numDessert = scanner.nextInt();
 
-                                    String message3 = "%-12s | W %4.1f | %s";
                                     if (numDessert >= 0 && numDessert <= 4) {
                                         switch (numDessert) {
                                             case 0:
@@ -173,7 +171,7 @@ public class Kiosk {
                                             case 2:
                                             case 3:
                                             case 4:
-                                                System.out.println("선택한 메뉴: " + String.format(message3, dessertItems.get(numDessert - 1).getName(), dessertItems.get(numDessert - 1).getPrice(), dessertItems.get(numDessert - 1).getExplanation()));
+                                                System.out.println("선택한 메뉴: " + String.format(message, dessertItems.get(numDessert - 1).getName(), dessertItems.get(numDessert - 1).getPrice(), dessertItems.get(numDessert - 1).getExplanation()));
                                                 progressDesserts = false;
                                                 break;
                                         }
