@@ -26,7 +26,6 @@ public class Kiosk {
             System.out.println("[ MAIN MENU ]");
 
             // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
-
             for(int i = 1; i <= 3; i++) {
                 System.out.println(i + ". " + menus.get(i-1).getCategory());
             }
@@ -47,6 +46,7 @@ public class Kiosk {
                             progress = false;
                             break;
 
+                        // 햄버거 메뉴
                         case 1:
                             System.out.println();
                             System.out.println("[ BURGERS MENU ]");
@@ -75,6 +75,7 @@ public class Kiosk {
                             }
                             break;
 
+                        // 음료 메뉴
                         case 2:
                             System.out.println();
                             System.out.println("[ DRINKS MENU ]");
@@ -103,6 +104,7 @@ public class Kiosk {
                             }
                             break;
 
+                        // 디저트 메뉴
                         case 3:
                             System.out.println();
                             System.out.println("[ DESSERTS MENU ]");
@@ -131,11 +133,11 @@ public class Kiosk {
                             }
                             break;
                     }
-                } else {
+                } else {                                // 0~3 이외의 숫자 입력 들어올 경우
                     System.out.println("0~3까지의 숫자만 입력해주세요.");
                 }
 
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException e) {         // 숫자 이외의 입력이 들어올 경우
                 System.out.println("숫자 이외에는 입력할 수 없습니다. 0~3까지의 숫자만 입력해주세요.");
                 scanner.nextLine();
             }

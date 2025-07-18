@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Menu {
     // 속성(필드)
+    private final String category;
     private final List<MenuItem> menuItems;
-    private String category;
 
     // 생성자
     public Menu(String category) {
-        this.menuItems = new ArrayList<>();
         this.category = category;
+        this.menuItems = new ArrayList<>();
     }
 
     // 기능
@@ -30,7 +30,7 @@ public class Menu {
     }
 
     // 게터(Getter)
-    // List를 리턴하는 메서드
+    // List를 반환하는 메서드
     public List<MenuItem> getMenuItems() {
         return menuItems;
     }

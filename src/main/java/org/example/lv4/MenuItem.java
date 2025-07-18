@@ -15,14 +15,17 @@ public class MenuItem {
 
     // 기능
     // 게터(Getter)
+    // 이름을 반환하는 메서드
     public String getName() {
         return this.name;
     }
 
+    // 가격을 반환하는 메서드
     public double getPrice() {
         return this.price;
     }
 
+    // 설명을 반환하는 메서드
     public String getExplanation() {
         return this.explanation;
     }
