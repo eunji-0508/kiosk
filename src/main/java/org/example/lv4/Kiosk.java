@@ -50,9 +50,10 @@ public class Kiosk {
                         case 1:
                             System.out.println();
                             System.out.println("[ BURGERS MENU ]");
-                            Menu menuBurger = menus.get(0);
-                            menuBurger.printMenuItems();
+                            Menu burgerMenus = menus.get(0);
+                            burgerMenus.printMenuItems();
 
+                            List<MenuItem> burgerItems = burgerMenus.getMenuItems();
 
                             System.out.println("0. 종료      | 종료");
                             System.out.println();
@@ -60,7 +61,7 @@ public class Kiosk {
                             System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
                             int numBurger = scanner.nextInt();
 
-                            String message2 = "%-12s | W %4.1f | %s";
+                            String message1 = "%-12s | W %4.1f | %s";
                             switch(numBurger) {
                                 case 0:
                                     break;
@@ -69,18 +70,73 @@ public class Kiosk {
                                 case 2:
                                 case 3:
                                 case 4:
-                                    System.out.println("선택한 메뉴: " + String.format(message2, burgerList.get(numBurger-1).getName(), burgerList.get(numBurger-1).getPrice(), burgerList.get(numBurger-1).getExplanation()));
+                                    System.out.println("선택한 메뉴: " + String.format(message1, burgerItems.get(numBurger-1).getName(), burgerItems.get(numBurger-1).getPrice(), burgerItems.get(numBurger-1).getExplanation()));
+                                    break;
                             }
+                            break;
 
                         case 2:
+                            System.out.println();
+                            System.out.println("[ DRINKS MENU ]");
+                            Menu drinkMenus = menus.get(1);
+                            drinkMenus.printMenuItems();
+
+                            List<MenuItem> drinkItems = drinkMenus.getMenuItems();
+
+                            System.out.println("0. 종료      | 종료");
+                            System.out.println();
+
+                            System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
+                            int numDrink = scanner.nextInt();
+
+                            String message2 = "%-12s | W %4.1f | %s";
+                            switch(numDrink) {
+                                case 0:
+                                    break;
+
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                    System.out.println("선택한 메뉴: " + String.format(message2, drinkItems.get(numDrink-1).getName(), drinkItems.get(numDrink-1).getPrice(), drinkItems.get(numDrink-1).getExplanation()));
+                                    break;
+                            }
+                            break;
+
                         case 3:
+                            System.out.println();
+                            System.out.println("[ DESSERTS MENU ]");
+                            Menu dessertMenus = menus.get(2);
+                            dessertMenus.printMenuItems();
 
+                            List<MenuItem> dessertItems = dessertMenus.getMenuItems();
 
+                            System.out.println("0. 종료      | 종료");
+                            System.out.println();
+
+                            System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
+                            int numDessert = scanner.nextInt();
+
+                            String message3 = "%-12s | W %4.1f | %s";
+                            switch(numDessert) {
+                                case 0:
+                                    break;
+
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                    System.out.println("선택한 메뉴: " + String.format(message3, dessertItems.get(numDessert-1).getName(), dessertItems.get(numDessert-1).getPrice(), dessertItems.get(numDessert-1).getExplanation()));
+                                    break;
+                            }
+                            break;
                     }
+                } else {
+                    System.out.println("0~3까지의 숫자만 입력해주세요.");
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("0~3까지의 숫자만 입력해주세요.");
+                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~3까지의 숫자만 입력해주세요.");
                 scanner.nextLine();
             }
         }
