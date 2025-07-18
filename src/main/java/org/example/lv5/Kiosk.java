@@ -47,6 +47,7 @@ public class Kiosk {
                             progress = false;
                             break;
 
+
                         // 햄버거 메뉴
                         case 1:
                             System.out.println();
@@ -93,7 +94,6 @@ public class Kiosk {
                                 }
                             }
                             break;
-
 
 
                             // 음료 메뉴
