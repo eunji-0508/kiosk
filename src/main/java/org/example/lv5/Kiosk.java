@@ -19,15 +19,13 @@ public class Kiosk {
         Scanner scanner = new Scanner(System.in);
         boolean progress = true;
 
-        String message = "%-12s | W %4.1f | %s";
-
         // 반복문 시작
         while (progress) {
             System.out.println();
             System.out.println("[ MAIN MENU ]");
 
             // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
-            for (int i = 1; i <= 3; i++) {
+            for (int i = 1; i <= menus.size(); i++) {
                 System.out.println(i + ". " + menus.get(i - 1).getCategory());
             }
             System.out.println("0. 종료      | 종료");
@@ -50,46 +48,12 @@ public class Kiosk {
                     case 1:
                         getMenuTitle(1);
                         Menu burgerMenus = menus.get(0);
+
                         burgerMenus.printMenuItems();
 
-                        // Menu가 가진 List<MenuItem>을 반복문을 활용하여 햄버거 메뉴 출력
-                        List<MenuItem> burgerItems = burgerMenus.getMenuItems();
-
                         System.out.println("0. 뒤로가기");
-                        System.out.println();
 
-                        boolean progressBurgers = true;
-
-                        while (progressBurgers) {
-                            try {
-                                System.out.println();
-                                // 숫자 입력 받기
-                                System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
-                                int numBurger = scanner.nextInt();
-
-                                // 입력 받은 숫자가 올바르다면 인덱스를 활용해서 Menu가 가지고 있는 List<MenuItem>에 접근하기
-
-                                    switch (numBurger) {
-                                        case 0:
-                                            progressBurgers = false;
-                                            break;
-
-                                        case 1:
-                                        case 2:
-                                        case 3:
-                                        case 4:
-                                            System.out.println("선택한 메뉴: " + String.format(message, burgerItems.get(numBurger - 1).getName(), burgerItems.get(numBurger - 1).getPrice(), burgerItems.get(numBurger - 1).getExplanation()));
-                                            progressBurgers = false;
-                                            break;
-
-                                        default:
-                                            System.out.println("0~4까지의 숫자만 입력해주세요. 처음화면으로 돌아갑니다.");
-                                    }
-                            } catch (InputMismatchException e) {
-                                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~4까지의 숫자만 입력해주세요.");
-                                scanner.nextLine(); // 잘못 입력된 토큰 제거
-                            }
-                        }
+                        getMenuDetails(scanner, burgerMenus.getMenuItems());
                         break;
 
 
@@ -97,43 +61,12 @@ public class Kiosk {
                     case 2:
                         getMenuTitle(2);
                         Menu drinkMenus = menus.get(1);
+
                         drinkMenus.printMenuItems();
 
-                        List<MenuItem> drinkItems = drinkMenus.getMenuItems();
-
                         System.out.println("0. 뒤로가기");
-                        System.out.println();
 
-                        boolean progressDrinks = true;
-
-                        while (progressDrinks) {
-                            try {
-                                System.out.println();
-                                System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
-                                int numDrink = scanner.nextInt();
-
-                                    switch (numDrink) {
-                                        case 0:
-                                            progressDrinks = false;
-                                            break;
-
-                                        case 1:
-                                        case 2:
-                                        case 3:
-                                        case 4:
-                                            System.out.println("선택한 메뉴: " + String.format(message, drinkItems.get(numDrink - 1).getName(), drinkItems.get(numDrink - 1).getPrice(), drinkItems.get(numDrink - 1).getExplanation()));
-                                            progressDrinks = false;
-                                            break;
-
-                                        default:
-                                            System.out.println("0~4까지의 숫자만 입력해주세요.");
-                                    }
-
-                            } catch (InputMismatchException e) {
-                                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~4까지의 숫자만 입력해주세요.");
-                                scanner.nextLine();
-                            }
-                        }
+                        getMenuDetails(scanner, drinkMenus.getMenuItems());
                         break;
 
 
@@ -141,45 +74,15 @@ public class Kiosk {
                     case 3:
                         getMenuTitle(3);
                         Menu dessertMenus = menus.get(2);
+
                         dessertMenus.printMenuItems();
 
-                        List<MenuItem> dessertItems = dessertMenus.getMenuItems();
-
                         System.out.println("0. 뒤로가기");
-                        System.out.println();
+                        getMenuDetails(scanner, dessertMenus.getMenuItems());
+                        break;
 
-                        boolean progressDesserts = true;
-
-                        while (progressDesserts) {
-                            try {
-                                System.out.println();
-                                System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
-                                int numDessert = scanner.nextInt();
-
-                                    switch (numDessert) {
-                                        case 0:
-                                            progressDesserts = false;
-                                            break;
-
-                                        case 1:
-                                        case 2:
-                                        case 3:
-                                        case 4:
-                                            System.out.println("선택한 메뉴: " + String.format(message, dessertItems.get(numDessert - 1).getName(), dessertItems.get(numDessert - 1).getPrice(), dessertItems.get(numDessert - 1).getExplanation()));
-                                            progressDesserts = false;
-                                            break;
-                                        default:
-                                            System.out.println("0~4까지의 숫자만 입력해주세요.");
-                                            break;
-                                    }
-
-                            } catch (InputMismatchException e) {
-                                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~4까지의 숫자만 입력해주세요.");
-                                scanner.nextLine();
-                            }
-                        }
                     default:
-                        System.out.println("0~3까지의 숫자만 입력해주세요.");
+                        System.out.println("해당 번호는 존재하지 않습니다. 0~3까지의 숫자만 입력해주세요.");
                 }
             } catch (InputMismatchException e) {         // 숫자 이외의 입력이 들어올 경우
                 System.out.println("숫자 이외에는 입력할 수 없습니다. 0~3까지의 숫자만 입력해주세요.");
@@ -191,11 +94,46 @@ public class Kiosk {
 
     public void getMenuTitle(int numMenu) {
         System.out.println();
-        if(numMenu > 0 && numMenu <= menus.size()) {
-            String MenuTitle = menus.get(numMenu-1).getCategory();
+        if (numMenu > 0 && numMenu <= menus.size()) {
+            String MenuTitle = menus.get(numMenu - 1).getCategory();
             System.out.println("[ " + MenuTitle.toUpperCase() + " MENU ]");
         } else {
             System.out.println("0~3까지의 숫자만 입력해주세요.");
+        }
+    }
+
+    public void getMenuDetails(Scanner scanner, List<MenuItem> menuItems) {
+        System.out.println();
+        boolean progressItems = true;
+        String message = "%-12s | W %4.1f | %s";
+
+        while (progressItems) {
+            try {
+                System.out.println();
+                // 숫자 입력 받기
+                System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
+                int selectMenu = scanner.nextInt();
+
+                switch (selectMenu) {
+                    case 0:
+                        progressItems = false;
+                        break;
+
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        System.out.println("선택한 메뉴: " + String.format(message, menuItems.get(selectMenu - 1).getName(), menuItems.get(selectMenu - 1).getPrice(), menuItems.get(selectMenu - 1).getExplanation()));
+                        progressItems = false;
+                        break;
+
+                    default:
+                        System.out.println("0~4까지의 숫자만 입력해주세요.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~4까지의 숫자만 입력해주세요.");
+                scanner.nextLine(); // 잘못 입력된 토큰 제거
+            }
         }
     }
 }
