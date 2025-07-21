@@ -98,7 +98,7 @@ public class Kiosk {
             String MenuTitle = menus.get(numMenu - 1).getCategory();
             System.out.println("[ " + MenuTitle.toUpperCase() + " MENU ]");
         } else {
-            System.out.println("0~3까지의 숫자만 입력해주세요.");
+            System.out.println("0~" +  menus.size() + "까지의 숫자만 입력해주세요.");
         }
     }
 
@@ -128,10 +128,10 @@ public class Kiosk {
                         break;
 
                     default:
-                        System.out.println("0~4까지의 숫자만 입력해주세요.");
+                        System.out.println("0~" + menuItems.size() + "까지의 숫자만 입력해주세요.");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~4까지의 숫자만 입력해주세요.");
+                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~" + menuItems.size() + "까지의 숫자만 입력해주세요.");
                 scanner.nextLine(); // 잘못 입력된 토큰 제거
             }
         }
