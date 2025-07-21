@@ -46,39 +46,17 @@ public class Kiosk {
 
                     // 햄버거 메뉴
                     case 1:
-                        getMenuTitle(1);
-                        Menu burgerMenus = menus.get(0);
-
-                        burgerMenus.printMenuItems();
-
-                        System.out.println("0. 뒤로가기");
-
-                        getMenuDetails(scanner, burgerMenus.getMenuItems());
+                        getMenuDetails(scanner, numMenu);
                         break;
-
 
                     // 음료 메뉴
                     case 2:
-                        getMenuTitle(2);
-                        Menu drinkMenus = menus.get(1);
-
-                        drinkMenus.printMenuItems();
-
-                        System.out.println("0. 뒤로가기");
-
-                        getMenuDetails(scanner, drinkMenus.getMenuItems());
+                        getMenuDetails(scanner, numMenu);
                         break;
-
 
                     // 디저트 메뉴
                     case 3:
-                        getMenuTitle(3);
-                        Menu dessertMenus = menus.get(2);
-
-                        dessertMenus.printMenuItems();
-
-                        System.out.println("0. 뒤로가기");
-                        getMenuDetails(scanner, dessertMenus.getMenuItems());
+                        getMenuDetails(scanner, numMenu);
                         break;
 
                     default:
@@ -92,46 +70,49 @@ public class Kiosk {
 
     }
 
-    public void getMenuTitle(int numMenu) {
-        System.out.println();
-        if (numMenu > 0 && numMenu <= menus.size()) {
-            String MenuTitle = menus.get(numMenu - 1).getCategory();
-            System.out.println("[ " + MenuTitle.toUpperCase() + " MENU ]");
-        } else {
-            System.out.println("0~" +  menus.size() + "까지의 숫자만 입력해주세요.");
-        }
-    }
-
-    public void getMenuDetails(Scanner scanner, List<MenuItem> menuItems) {
-        System.out.println();
+    public void getMenuDetails(Scanner scanner, int numMenu) {
         boolean progressItems = true;
         String message = "%-12s | W %4.1f | %s";
 
         while (progressItems) {
             try {
                 System.out.println();
-                // 숫자 입력 받기
-                System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
-                int selectMenu = scanner.nextInt();
 
-                switch (selectMenu) {
-                    case 0:
-                        progressItems = false;
-                        break;
+                if (numMenu > 0 && numMenu <= menus.size()) {
+                    Menu menuType = menus.get(numMenu - 1);
+                    List<MenuItem> menuDetailedList = menuType.getMenuItems();
 
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        System.out.println("선택한 메뉴: " + String.format(message, menuItems.get(selectMenu - 1).getName(), menuItems.get(selectMenu - 1).getPrice(), menuItems.get(selectMenu - 1).getExplanation()));
-                        progressItems = false;
-                        break;
+                    String menuTitle = menuType.getCategory();
+                    System.out.println("[ " + menuTitle.toUpperCase() + " MENU ]");
 
-                    default:
-                        System.out.println("0~" + menuItems.size() + "까지의 숫자만 입력해주세요.");
+                    menuType.printMenuItems();
+                    System.out.println("0. 뒤로가기");
+
+                    // 숫자 입력 받기
+                    System.out.println();
+                    System.out.print("주문하실 메뉴의 번호를 입력하세요: ");
+                    int selectDetailedMenu = scanner.nextInt();
+
+                    switch (selectDetailedMenu) {
+                        case 0:
+                            progressItems = false;
+                            break;
+
+                        default:
+                            if((selectDetailedMenu > 0 && selectDetailedMenu <= menuDetailedList.size())) {
+                                System.out.println("선택한 메뉴: " + String.format(message, menuDetailedList.get(selectDetailedMenu - 1).getName(), menuDetailedList.get(selectDetailedMenu - 1).getPrice(), menuDetailedList.get(selectDetailedMenu - 1).getExplanation()));
+                                progressItems = false;
+                                break;
+                            }
+                            else {
+                                System.out.println("메뉴에 적힌 숫자만 입력하세요. 0~" + menuDetailedList.size() + "까지의 숫자만 입력해주세요.");
+                            }
+                    }
+                } else {
+                    System.out.println("0~" + menus.size() + "까지의 숫자만 입력해주세요.");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("숫자 이외에는 입력할 수 없습니다. 0~" + menuItems.size() + "까지의 숫자만 입력해주세요.");
+                System.out.println("숫자 이외에는 입력할 수 없습니다. 적혀진 숫자만 입력해주세요.");
                 scanner.nextLine(); // 잘못 입력된 토큰 제거
             }
         }

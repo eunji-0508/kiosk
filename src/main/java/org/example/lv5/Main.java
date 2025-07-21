@@ -23,6 +23,7 @@ public class Main {
         drinks.addMenuItem(new MenuItem("Cola", 2.5, "톡 쏘는 시원함이 좋은 콜라"));
         drinks.addMenuItem(new MenuItem("Iced tea", 3.0, "복숭아 향기와 맛이 일품인 아이스티"));
         drinks.addMenuItem(new MenuItem("Milkshake", 3.5, "햄버거랑 같이 먹으면 맛이 두 배인 맛있는 밀크쉐이크"));
+        drinks.addMenuItem(new MenuItem("Zero Cola", 2.5, "살 찌지 않는 0 칼로리의 콜라"));
 
         // 디저트 메뉴
         desserts.addMenuItem(new MenuItem("Ice cream", 1.5, "간단하게 즐길 수 있는 바닐라 아이스크림"));
