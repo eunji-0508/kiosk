@@ -1,20 +1,21 @@
-package org.example.lv5;
+package org.example.lv6;
 
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Kiosk {
+public class KioskService {
     // 속성(필드)
     private final List<Menu> menus;
+    private final Cart cart = new Cart();
 
     // 생성자
-    public Kiosk(List<Menu> menus) {
+    public KioskService(List<Menu> menus) {
         this.menus = menus;
     }
 
-    // 기능
-    public void start() {
+
+    public void run() {
         // 스캐너 선언
         Scanner scanner = new Scanner(System.in);
         boolean progress = true;
@@ -46,9 +47,9 @@ public class Kiosk {
 
                     // 햄버거 메뉴
                     case 1:
-                    // 음료 메뉴
+                        // 음료 메뉴
                     case 2:
-                    // 디저트 메뉴
+                        // 디저트 메뉴
                     case 3:
                         getMenuDetails(scanner, numMenu);
                         break;
@@ -61,7 +62,6 @@ public class Kiosk {
                 scanner.nextLine();
             }
         }
-
     }
 
     public void getMenuDetails(Scanner scanner, int numMenu) {
@@ -93,12 +93,11 @@ public class Kiosk {
                             break;
 
                         default:
-                            if((selectDetailedMenu > 0 && selectDetailedMenu <= menuDetailedList.size())) {
+                            if ((selectDetailedMenu > 0 && selectDetailedMenu <= menuDetailedList.size())) {
                                 System.out.println("선택한 메뉴: " + String.format(message, menuDetailedList.get(selectDetailedMenu - 1).getName(), menuDetailedList.get(selectDetailedMenu - 1).getPrice(), menuDetailedList.get(selectDetailedMenu - 1).getExplanation()));
                                 progressItems = false;
                                 break;
-                            }
-                            else {
+                            } else {
                                 System.out.println("메뉴에 적힌 숫자만 입력하세요. 0~" + menuDetailedList.size() + "까지의 숫자만 입력해주세요.");
                             }
                     }
@@ -111,4 +110,5 @@ public class Kiosk {
             }
         }
     }
+
 }

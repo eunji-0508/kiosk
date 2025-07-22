@@ -2,9 +2,9 @@ package org.example.lv5;
 
 public class MenuItem {
     // 속성(필드)
-    private String name;            // 이름
-    private double price;           // 가격 : BigDecimal 모르니까 double로...
-    private String explanation;     // 설명
+    private final String name;            // 이름
+    private final double price;           // 가격 : BigDecimal 모르니까 double로...
+    private final String explanation;     // 설명
 
     // 생성자
     public MenuItem(String name, double price, String explanation) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Menu {
     // 속성(필드)
-    private String category;
+    private final String category;
     private final List<MenuItem> menuItems;
 
     // 생성자

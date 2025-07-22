@@ -37,7 +37,7 @@ public class Main {
         menus.add(desserts);
 
         // Kiosk 객체 생성
-        Kiosk kiosk = new Kiosk(menus);
+        Kiosk kiosk = new Kiosk(new KioskService(menus));
 
         // Kiosk 내 시작하는 함수 호출
         kiosk.start();
