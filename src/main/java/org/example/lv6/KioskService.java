@@ -45,11 +45,8 @@ public class KioskService {
                         progress = false;
                         break;
 
-                    // 햄버거 메뉴
                     case 1:
-                        // 음료 메뉴
                     case 2:
-                        // 디저트 메뉴
                     case 3:
                         getMenuDetails(scanner, numMenu);
                         break;
@@ -95,6 +92,7 @@ public class KioskService {
                         default:
                             if ((selectDetailedMenu > 0 && selectDetailedMenu <= menuDetailedList.size())) {
                                 System.out.println("선택한 메뉴: " + String.format(message, menuDetailedList.get(selectDetailedMenu - 1).getName(), menuDetailedList.get(selectDetailedMenu - 1).getPrice(), menuDetailedList.get(selectDetailedMenu - 1).getExplanation()));
+
                                 progressItems = false;
                                 break;
                             } else {

@@ -17,10 +17,9 @@ public class Menu {
     // 기능
     // List에 들어있는 MenuItem을 순차적으로 보여주는 메서드
     public void printMenuItems() {
-        String message1 = "%d. %-15s | W %4.1f | %s";
+        String message = "%d. %-15s | W %4.1f | %s";
         for (int i = 1; i <= menuItems.size(); i++) {
-            String messageType = String.format(message1, i, menuItems.get(i - 1).getName(), menuItems.get(i - 1).getPrice(), menuItems.get(i - 1).getExplanation());
-            System.out.println(messageType);
+            System.out.println(String.format(message, i, menuItems.get(i - 1).getName(), menuItems.get(i - 1).getPrice(), menuItems.get(i - 1).getExplanation()));
         }
     }
 
